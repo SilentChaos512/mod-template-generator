@@ -6,5 +6,6 @@
   "MOD_ID": "examplemod",
   "MOD_CLASS": "ExampleMod",
   "MOD_NAME": "An Example Mod",
-  "ignoredExtensions": ["jar"]
+  "ignoredExtensions": ["jar"],
+  "ignoredFiles": ["placeholder"]
 }

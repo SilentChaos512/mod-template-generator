@@ -52,10 +52,15 @@ def make_output_dir(root: str, dir: str):
         os.makedirs(output_path)
 
 
-def hasIgnoredExtension(file_name: str):
-    """ Determine if the extension is 'ignored' and the file should be copied directly """
+def hasNoProcessExtension(file_name: str):
+    """ Determine if the file should not be processed, just copied directly """
     m = re.search(r'(?<=\.)[^.]+', file_name)
     return m.group() in CONFIG['ignoredExtensions'] if m else False
+
+
+def isIgnoredFile(file_name: str):
+    """ Determine if the file is 'ignored', meaning it will not copy to the output directory """
+    return file_name in CONFIG['ignoredFiles']
 
 
 def process_file(root: str, file_name: str):
@@ -65,11 +70,16 @@ def process_file(root: str, file_name: str):
     full_input_path = os.path.join(root, file_name)
     full_output_path = get_output_path(os.path.join(root, file_name))
 
-    if hasIgnoredExtension(file_name):
+    if (isIgnoredFile(file_name)):
+        # Ignore file, do not copy
+        print("ignored: " + full_input_path)
+    elif hasNoProcessExtension(file_name):
+        # No processing, just copy
         print('processing not allowed, copying file: ' + full_input_path)
         print('copied to: ' + full_output_path)
         shutil.copyfile(full_input_path, full_output_path)
     else:
+        # Process file normally, performing substitutions on copy
         with open(full_input_path, encoding='utf8') as f:
             text = f.read()
         text = substitute_config_values(text)
