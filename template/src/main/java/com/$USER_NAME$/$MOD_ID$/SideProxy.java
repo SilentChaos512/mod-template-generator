@@ -1,13 +1,12 @@
 package $PACKAGE$;
 
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.fml.DeferredWorkQueue;
+import $PACKAGE$.init.*;
 import net.minecraftforge.fml.event.lifecycle.*;
 import net.minecraftforge.fml.javafmlmod.FMLModLoadingContext;
 
 class SideProxy {
     SideProxy() {
-        $MOD_CLASS$.LOGGER.info("SideProxy init");
+        $MOD_CLASS$.LOGGER.debug("SideProxy init");
 
         // Add listeners for common events
         FMLModLoadingContext.get().getModEventBus().addListener(this::commonSetup);
@@ -20,36 +19,36 @@ class SideProxy {
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {
-        $MOD_CLASS$.LOGGER.info("SideProxy commonSetup");
+        $MOD_CLASS$.LOGGER.debug("SideProxy commonSetup");
     }
 
     private void imcEnqueue(InterModEnqueueEvent event) {
-        $MOD_CLASS$.LOGGER.info("SideProxy imcEnqueue");
+        $MOD_CLASS$.LOGGER.debug("SideProxy imcEnqueue");
     }
 
     private void imcProcess(InterModProcessEvent event) {
-        $MOD_CLASS$.LOGGER.info("SideProxy imcProcess");
+        $MOD_CLASS$.LOGGER.debug("SideProxy imcProcess");
     }
 
     static class Client extends SideProxy {
         Client() {
-            $MOD_CLASS$.LOGGER.info("SideProxy.Client init");
+            $MOD_CLASS$.LOGGER.debug("SideProxy.Client init");
             FMLModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
         }
 
         private void clientSetup(FMLClientSetupEvent event) {
-            $MOD_CLASS$.LOGGER.info("SideProxy.Client clientSetup");
+            $MOD_CLASS$.LOGGER.debug("SideProxy.Client clientSetup");
         }
     }
 
     static class Server extends SideProxy {
         Server() {
-            $MOD_CLASS$.LOGGER.info("SideProxy.Server init");
+            $MOD_CLASS$.LOGGER.debug("SideProxy.Server init");
             FMLModLoadingContext.get().getModEventBus().addListener(this::serverSetup);
         }
 
         private void serverSetup(FMLDedicatedServerSetupEvent event) {
-            $MOD_CLASS$.LOGGER.info("SideProxy.Server serverSetup");
+            $MOD_CLASS$.LOGGER.debug("SideProxy.Server serverSetup");
         }
     }
 }

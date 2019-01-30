@@ -1,15 +1,17 @@
 package $PACKAGE$.init;
 
+import $PACKAGE$.ExampleMod;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.util.IItemProvider;
+import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.function.Function;
 
 public final class ModItems {
     public static Item example;
@@ -34,6 +36,7 @@ public final class ModItems {
         ResourceLocation id = new ResourceLocation($MOD_CLASS$.MOD_ID, name);
         item.setRegistryName(id);
         ForgeRegistries.ITEMS.register(item);
+        return item;
     }
 
     private static <E extends Enum<E> & IItemProvider & IStringSerializable> void registerFromEnum(Class<E> enumClass) {

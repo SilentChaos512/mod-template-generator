@@ -4,6 +4,8 @@ Creates some common files and folder, substituting values like mod ID where need
 
 This program goes through every file in the `template` directory and looks for text in the form of `$SOME_KEY$`, replacing it with the value in `config.json`. For example, anywhere a file contains `$MOD_ID$`, it is replaced by the `MOD_ID` listed in the config. The modified files can be found in the `output` directory (which will be created when you run the program). Empty directories are also copied.
 
+Make sure `PACKAGE` matches the `USER_NAME` and `MOD_ID` configs, otherwise the directory names will not match the packages, and imports will fail. The package should be in the form `something.username.modid`.
+
 ## Requirements
 
 - Python 3

@@ -1,17 +1,14 @@
 package $PACKAGE$.init;
 
+import $PACKAGE$.ExampleMod;
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemGroup;
-import net.minecraft.util.IItemProvider;
-import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.registries.ForgeRegistries;
-
-import java.util.ArrayList;
-import java.util.Collection;
 
 public final class ModBlocks {
     public static Block example;
