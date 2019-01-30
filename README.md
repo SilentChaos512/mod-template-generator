@@ -6,6 +6,12 @@ This program goes through every file in the `template` directory and looks for t
 
 Make sure `PACKAGE` matches the `USER_NAME` and `MOD_ID` configs, otherwise the directory names will not match the packages, and imports will fail. The package should be in the form `something.username.modid`.
 
+The included template has everything needed to get a mod running. If you are using IntelliJ, you just need to import the build.gradle and let ForgeGradle do its thing.
+
+## License Notes
+
+This project is licensed under the Unlicense. The template contains a copy of the MIT license. If you wish to use a different license, be sure to replace it.
+
 ## Requirements
 
 - Python 3
@@ -15,6 +21,8 @@ Make sure `PACKAGE` matches the `USER_NAME` and `MOD_ID` configs, otherwise the 
 
 1. Edit config.json. This is where you set values like the mod ID.
 2. Run generate.py (`py ./generate.py`)
+3. When you are happy with the results, move the contents of the `output` directory somewhere else, so your code does not get nuked if you run the program again
+4. Enjoy not typing lots of boilerplate code
 
 ## Editing Templates
 

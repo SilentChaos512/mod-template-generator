@@ -4,12 +4,24 @@ import os
 import re
 import shutil
 
+from datetime import datetime
+
 with open('config.json') as f:
-    CONFIG = json.load(f)
+    CONFIG: dict = json.load(f)
 
 if not CONFIG:
     print("config.json is missing!")
     exit(1)
+
+
+def add_config(key: str, val):
+    """ Adds an additional value not present in config.json to the config """
+    if not key in CONFIG.keys():
+        CONFIG[key] = str(val)
+
+
+# Add some additional metadata to the config, such as current year
+add_config('YEAR', datetime.now().year)
 
 
 def filtered_config():
