@@ -1,6 +1,6 @@
 package $PACKAGE$.init;
 
-import $PACKAGE$.ExampleMod;
+import $PACKAGE$.$MOD_CLASS$;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
