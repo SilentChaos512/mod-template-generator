@@ -1,0 +1,10 @@
+{
+  "MC_VERSION": "1.13",
+  "FORGE_VERSION": "net.minecraftforge.test:forge:1.13-24.0.144-1.13-pre",
+  "PACKAGE": "com.username.examplemod",
+  "USER_NAME": "username",
+  "MOD_ID": "examplemod",
+  "MOD_CLASS": "ExampleMod",
+  "MOD_NAME": "An Example Mod",
+  "ignoredExtensions": ["jar"]
+}

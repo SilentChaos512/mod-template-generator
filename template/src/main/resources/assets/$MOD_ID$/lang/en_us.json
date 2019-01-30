@@ -1,0 +1,4 @@
+{
+  "block.$MOD_ID$.example_block": "Example Block",
+  "item.$MOD_ID$.example_item": "Example Item"
+}
