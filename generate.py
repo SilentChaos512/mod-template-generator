@@ -21,6 +21,7 @@ def add_config(key: str, val):
 
 
 # Add some additional metadata to the config, such as current year
+add_config('PACKAGE_PATH', CONFIG['PACKAGE'].replace('.', os.sep))
 add_config('YEAR', datetime.now().year)
 
 
