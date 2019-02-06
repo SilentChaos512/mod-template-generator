@@ -25,6 +25,18 @@ add_config('PACKAGE_PATH', CONFIG['PACKAGE'].replace('.', os.sep))
 add_config('YEAR', datetime.now().year)
 
 
+# Ask user to agree to Minecraft EULA. This creates the eula.txt and sets the
+# value to true if the user agrees.
+print('This program can generate the eula.txt file for you.')
+print('Read the EULA here: (https://account.mojang.com/documents/minecraft_eula)')
+if input('Do you agree to the Minecraft EULA? (y/n): ').startswith('y'):
+    CONFIG['EULA_COMMENT'] = "User agreed to the EULA when running SilentChaos512's mod template generator"
+    CONFIG['EULA_AGREED_TO'] = 'true'
+else:
+    CONFIG['EULA_COMMENT'] = "User did not agree to EULA"
+    CONFIG['EULA_AGREED_TO'] = 'false'
+
+
 def filtered_config():
     """ Get only the string values from the config """
     return [(k, v) for (k, v) in CONFIG.items() if isinstance(v, str)]
