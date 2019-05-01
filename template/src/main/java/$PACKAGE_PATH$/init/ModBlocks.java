@@ -10,6 +10,8 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.registries.ForgeRegistries;
 
+import javax.annotation.Nullable;
+
 public final class ModBlocks {
     public static Block example;
 
@@ -20,24 +22,25 @@ public final class ModBlocks {
         if (!event.getName().equals(ForgeRegistries.BLOCKS.getRegistryName())) return;
 
         // Register your blocks here
-        example = register("example_block", new Block(Block.Builder
+        example = register("example_block", new Block(Block.Properties
                 .create(Material.ROCK)
-                .hardnessAndResistance(4, 20)));
+                .hardnessAndResistance(4, 20)
+        ));
     }
 
     private static <T extends Block> T register(String name, T block) {
-        ItemBlock item = new ItemBlock(block, new Item.Builder()
-                .group(ItemGroup.BUILDING_BLOCKS));
+        ItemBlock item = new ItemBlock(block, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
         return register(name, block, item);
     }
 
-    private static <T extends Block> T register(String name, T block, ItemBlock item) {
-        ResourceLocation id = new ResourceLocation($MOD_CLASS$.MOD_ID, name);
+    private static <T extends Block> T register(String name, T block, @Nullable ItemBlock item) {
+        ResourceLocation id = $MOD_CLASS$.getId(name);
         block.setRegistryName(id);
         ForgeRegistries.BLOCKS.register(block);
 
-        item.setRegistryName(id);
-        ModItems.blocksToRegister.add(item);
+        if (item != null) {
+            ModItems.BLOCKS_TO_REGISTER.put(name, item);
+        }
 
         return block;
     }

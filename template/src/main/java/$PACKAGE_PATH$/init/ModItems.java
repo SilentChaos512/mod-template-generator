@@ -4,19 +4,17 @@ import $PACKAGE$.$MOD_CLASS$;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemGroup;
-import net.minecraft.util.IItemProvider;
-import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.registries.ForgeRegistries;
 
-import java.util.ArrayList;
-import java.util.Collection;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 public final class ModItems {
     public static Item example;
 
-    static final Collection<ItemBlock> blocksToRegister = new ArrayList<>();
+    static final Map<String, ItemBlock> BLOCKS_TO_REGISTER = new LinkedHashMap<>();
 
     private ModItems() {}
 
@@ -25,23 +23,17 @@ public final class ModItems {
         if (!event.getName().equals(ForgeRegistries.ITEMS.getRegistryName())) return;
 
         // Register block items first
-        blocksToRegister.forEach(ForgeRegistries.ITEMS::register);
+        BLOCKS_TO_REGISTER.forEach(ModItems::register);
 
         // Then register your items here
-        example = register("example_item", new Item(new Item.Builder()
+        example = register("example_item", new Item(new Item.Properties()
                 .group(ItemGroup.MATERIALS)));
     }
 
     private static <T extends Item> T register(String name, T item) {
-        ResourceLocation id = new ResourceLocation($MOD_CLASS$.MOD_ID, name);
+        ResourceLocation id = $MOD_CLASS$.getId(name);
         item.setRegistryName(id);
         ForgeRegistries.ITEMS.register(item);
         return item;
-    }
-
-    private static <E extends Enum<E> & IItemProvider & IStringSerializable> void registerFromEnum(Class<E> enumClass) {
-        for (E e : enumClass.getEnumConstants()) {
-            register(e.getName(), e.asItem());
-        }
     }
 }

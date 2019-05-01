@@ -1,11 +1,18 @@
 {
-  "MC_VERSION": "1.13",
-  "FORGE_VERSION": "net.minecraftforge.test:forge:1.13-24.0.144-1.13-pre",
+  "MC_VERSION": "1.13.2",
+  "FORGE_VERSION": "1.13.2-25.0.191",
+  "MCP_MAPPINGS_CHANNEL": "snapshot",
+  "MCP_MAPPINGS_VERSION": "20180921-1.13",
+  "PACKAGE_GROUP": "com.username",
   "PACKAGE": "com.username.examplemod",
   "USER_NAME": "username",
   "MOD_ID": "examplemod",
   "MOD_CLASS": "ExampleMod",
   "MOD_NAME": "An Example Mod",
-  "ignoredExtensions": ["jar"],
-  "ignoredFiles": ["placeholder"]
+  "ignoredExtensions": [
+    "jar"
+  ],
+  "ignoredFiles": [
+    "placeholder"
+  ]
 }

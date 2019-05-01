@@ -2,20 +2,20 @@ package $PACKAGE$;
 
 import $PACKAGE$.init.*;
 import net.minecraftforge.fml.event.lifecycle.*;
-import net.minecraftforge.fml.javafmlmod.FMLModLoadingContext;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 class SideProxy {
     SideProxy() {
         $MOD_CLASS$.LOGGER.debug("SideProxy init");
 
         // Add listeners for common events
-        FMLModLoadingContext.get().getModEventBus().addListener(this::commonSetup);
-        FMLModLoadingContext.get().getModEventBus().addListener(this::imcEnqueue);
-        FMLModLoadingContext.get().getModEventBus().addListener(this::imcProcess);
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::commonSetup);
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::imcEnqueue);
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::imcProcess);
 
         // Add listeners for registry events
-        FMLModLoadingContext.get().getModEventBus().addListener(ModBlocks::registerAll);
-        FMLModLoadingContext.get().getModEventBus().addListener(ModItems::registerAll);
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(ModBlocks::registerAll);
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(ModItems::registerAll);
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {
@@ -33,7 +33,7 @@ class SideProxy {
     static class Client extends SideProxy {
         Client() {
             $MOD_CLASS$.LOGGER.debug("SideProxy.Client init");
-            FMLModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
+            FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
         }
 
         private void clientSetup(FMLClientSetupEvent event) {
@@ -44,7 +44,7 @@ class SideProxy {
     static class Server extends SideProxy {
         Server() {
             $MOD_CLASS$.LOGGER.debug("SideProxy.Server init");
-            FMLModLoadingContext.get().getModEventBus().addListener(this::serverSetup);
+            FMLJavaModLoadingContext.get().getModEventBus().addListener(this::serverSetup);
         }
 
         private void serverSetup(FMLDedicatedServerSetupEvent event) {
