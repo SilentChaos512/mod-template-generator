@@ -2,7 +2,7 @@ package $PACKAGE$.init;
 
 import $PACKAGE$.$MOD_CLASS$;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
+import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
@@ -14,7 +14,7 @@ import java.util.Map;
 public final class ModItems {
     public static Item example;
 
-    static final Map<String, ItemBlock> BLOCKS_TO_REGISTER = new LinkedHashMap<>();
+    static final Map<String, BlockItem> BLOCKS_TO_REGISTER = new LinkedHashMap<>();
 
     private ModItems() {}
 
@@ -27,7 +27,8 @@ public final class ModItems {
 
         // Then register your items here
         example = register("example_item", new Item(new Item.Properties()
-                .group(ItemGroup.MATERIALS)));
+                .group(ItemGroup.MATERIALS)
+        ));
     }
 
     private static <T extends Item> T register(String name, T item) {

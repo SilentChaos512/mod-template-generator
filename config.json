@@ -1,16 +1,19 @@
 {
-  "MC_VERSION": "1.13.2",
-  "FORGE_VERSION": "1.13.2-25.0.191",
+  "MC_VERSION": "1.14.3",
+  "MC_VERSION_RANGE": "[1.14.3]",
+  "FORGE_VERSION": "1.14.3-27.0.15",
+  "FORGE_VERSION_RANGE": "[27,)",
   "MCP_MAPPINGS_CHANNEL": "snapshot",
-  "MCP_MAPPINGS_VERSION": "20180921-1.13",
+  "MCP_MAPPINGS_VERSION": "20190629-1.14.3",
   "PACKAGE_GROUP": "com.username",
   "PACKAGE": "com.username.examplemod",
-  "USER_NAME": "username",
+  "USER_NAME": "Username",
   "MOD_ID": "examplemod",
   "MOD_CLASS": "ExampleMod",
   "MOD_NAME": "An Example Mod",
   "ignoredExtensions": [
-    "jar"
+    "jar",
+    "png"
   ],
   "ignoredFiles": [
     "placeholder"

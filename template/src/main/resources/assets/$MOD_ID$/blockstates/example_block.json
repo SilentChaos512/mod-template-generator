@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "": {
+            "model": "$MOD_ID$:block/example_block"
+        }
+    }
+}

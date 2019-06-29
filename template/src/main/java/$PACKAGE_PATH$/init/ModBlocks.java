@@ -4,7 +4,7 @@ import $PACKAGE$.$MOD_CLASS$;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
+import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
@@ -29,11 +29,11 @@ public final class ModBlocks {
     }
 
     private static <T extends Block> T register(String name, T block) {
-        ItemBlock item = new ItemBlock(block, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+        BlockItem item = new BlockItem(block, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
         return register(name, block, item);
     }
 
-    private static <T extends Block> T register(String name, T block, @Nullable ItemBlock item) {
+    private static <T extends Block> T register(String name, T block, @Nullable BlockItem item) {
         ResourceLocation id = $MOD_CLASS$.getId(name);
         block.setRegistryName(id);
         ForgeRegistries.BLOCKS.register(block);

@@ -15,7 +15,6 @@ import java.util.Random;
 public final class $MOD_CLASS$ {
     public static final String MOD_ID = "$MOD_ID$";
     public static final String MOD_NAME = "$MOD_NAME$";
-    public static final String RESOURCE_PREFIX = MOD_ID + ":";
 
     public static final Logger LOGGER = LogManager.getLogger(MOD_NAME);
     public static final Random RANDOM = new Random();
@@ -37,8 +36,7 @@ public final class $MOD_CLASS$ {
     }
 
     public static boolean isDevBuild() {
-        String version = getVersion();
-        return "NONE".equals(version);
+        return "NONE".equals(getVersion());
     }
 
 
